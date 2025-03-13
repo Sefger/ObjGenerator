@@ -1,0 +1,5 @@
+﻿  ObjGenerator.cpp
+C:\Users\Пользователь\source\repos\ObjGenerator\ObjGenerator\ObjGenerator.cpp(95,9): warning C4101: z: неиспользованная локальная переменная
+C:\Users\Пользователь\source\repos\ObjGenerator\ObjGenerator\ObjGenerator.cpp(94,9): warning C4101: y: неиспользованная локальная переменная
+C:\Users\Пользователь\source\repos\ObjGenerator\ObjGenerator\ObjGenerator.cpp(93,9): warning C4101: x: неиспользованная локальная переменная
+  ObjGenerator.vcxproj -> C:\Users\Пользователь\source\repos\ObjGenerator\x64\Debug\ObjGenerator.exe
