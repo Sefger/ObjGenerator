@@ -280,46 +280,46 @@ int main() {
     std::ofstream myFile("obj2.obj");
 
     //// Запись в файл  
-    //std::cout << "What model you want to generate?\n"
-    //    "\n1 - triangle"
-    //    "\n2 - polygon"
-    //    "\n3 - parallelepiped"
-    //    "\n4 - pyramid"
-    //    "\n5 - cube" 
-    //"\n6 - truncated piramid\n";
-    //int num;
+    std::cout << "What model you want to generate?\n"
+        "\n1 - triangle"
+        "\n2 - polygon"
+        "\n3 - parallelepiped"
+        "\n4 - pyramid"
+        "\n5 - cube" 
+    "\n6 - truncated piramid\n";
+    int num;
 
-    //std::cin >> num;
+    std::cin >> num;
 
-    //switch (num)
-    //{
-    //case 1:
-    //    //работает
-    //    createTriangle(myFile);
-    //    break;
+    switch (num)
+    {
+    case 1:
+        //работает
+        createTriangle(myFile);
+        break;
 
-    //case 2:
-    //    //работает
-    //    createPolygon(myFile);
-    //    break;
+    case 2:
+        //работает
+        createPolygon(myFile);
+        break;
 
-    //case 3:
-    //    //работает
-    //    createParallelepiped(myFile);
-    //    break;
+    case 3:
+        //работает
+        createParallelepiped(myFile);
+        break;
 
-    //case 4:
-    //    // работает
-    //    createPiramid(myFile);
-    //    break;
-    //case 5:
-    //    createCube(myFile);
-    //    break;
+    case 4:
+        // работает
+        createPiramid(myFile);
+        break;
+    case 5:
+        createCube(myFile);
+        break;
 
-    //case 6:
-    //    createTruncatedPiramid(myFile);
-    //    break;
-    //}
+    case 6:
+        createTruncatedPiramid(myFile);
+        break;
+    }
     generateTruncatedPiramid(myFile, 10, 10, 10, 4);
     myFile.close();
 }
