@@ -46,8 +46,8 @@ bool checkIsDouble(std::string str) {
     }
 }
 
-void generateTriangle(std::ofstream& file, std::vector<Vertex> vec) {
-    ObjStreamWriter writer(file);
+void generateTriangle(ObjStreamWriter writer, std::vector<Vertex> vec) {
+    
     
     for (Vertex v : vec) {
         
@@ -56,14 +56,13 @@ void generateTriangle(std::ofstream& file, std::vector<Vertex> vec) {
     
     writer.addFacet(writer.getSize(), writer.getSize() - 1, writer.getSize() - 2);
 }
-void generateTriangle(std::ofstream& file, double x, double y, double z) {
-    ObjStreamWriter writer(file);
+void generateTriangle(ObjStreamWriter writer, double x, double y, double z) {
     writer.addVertex(x, y, z);
     writer.addFacet(writer.getSize() , writer.getSize() - 1, writer.getSize() - 2);
    
 }
-void generatePolygon(std::ofstream& file, double length, double width) {
-    ObjStreamWriter writer(file);
+void generatePolygon(ObjStreamWriter writer, double length, double width) {
+  
     writer.addVertex(0, 0, 0);//-4
     writer.addVertex(length, 0, 0);//-3
     writer.addVertex(length, width, 0);//-2
@@ -71,8 +70,8 @@ void generatePolygon(std::ofstream& file, double length, double width) {
     writer.addFacet(writer.getSize() - 3, writer.getSize() - 2, writer.getSize() - 1);
     writer.addFacet(writer.getSize() - 3, writer.getSize() - 1, writer.getSize());
 };
-void generateParallelepiped(std::ofstream& file, double length, double width, double height) {
-    ObjStreamWriter writer(file);
+void generateParallelepiped(ObjStreamWriter writer, double length, double width, double height) {
+   
     writer.addVertex(0, 0, 0);
     writer.addVertex(length, 0, 0);
     writer.addVertex(length, width, 0);
@@ -110,14 +109,14 @@ void generateParallelepiped(std::ofstream& file, double length, double width, do
     
 
 }
-void generateCube(std::ofstream& myFile, double side) {
-    generateParallelepiped(myFile, side, side, side);
+void generateCube(ObjStreamWriter writer, double side) {
+    generateParallelepiped(writer, side, side, side);
 }
-void generatePiramid(std::ofstream& file, double length, double width, double height) {
+void generatePiramid(ObjStreamWriter writer, double length, double width, double height) {
     // ширина по x 
     // длина по y
     //пока пирамида имеет квадратное основание
-    ObjStreamWriter writer(file);
+   
     writer.addVertex(0, 0, 0);// 1 - 5
     writer.addVertex(0, length, 0);// 2 - 4
     writer.addVertex(width, 0, 0);// 3 - 3
@@ -137,13 +136,12 @@ void generatePiramid(std::ofstream& file, double length, double width, double he
     writer.addFacet(writer.getSize() - 4, writer.getSize() -2, writer.getSize() );
 
 }
-void generateTruncatedPiramid(std::ofstream& file, double length, double width, double height, double newHeight) {
+void generateTruncatedPiramid(ObjStreamWriter writer, double length, double width, double height, double newHeight) {
     if (newHeight >= height) {
         std::cout << "Invalid input";
         return;
     }
-    ObjStreamWriter writer(file);
-
+   
     // Рассчитываем параметры усечения
     double ratio = newHeight / height;
     double topWidth = width * ratio;
@@ -206,28 +204,28 @@ void generateTruncatedPiramid(std::ofstream& file, double length, double width, 
 
 }
 //разговоры с пользователем
-void createPolygon(std::ofstream& myFile) {
+void createPolygon(ObjStreamWriter writer) {
     std::cout << "Length and width: ";
     std::string sLength, sWidth;
 
     std::cin >> sLength;
     std::cin >> sWidth;
     if (checkIsDouble(sLength) && checkIsDouble(sWidth)) {
-        generatePolygon(myFile, std::stod(sLength), std::stod(sWidth));
+        generatePolygon(writer, std::stod(sLength), std::stod(sWidth));
     }
 }
-void createParallelepiped(std::ofstream& myFile) {
+void createParallelepiped(ObjStreamWriter writer) {
     std::cout << "Length, width and height: ";
     std::string sLength, sWidth, sHeight;
     std::cin >> sLength;
     std::cin >> sWidth;
     std::cin >> sHeight;
     if (checkIsDouble(sHeight) && checkIsDouble(sLength) && checkIsDouble(sWidth)) {
-        generateParallelepiped(myFile, std::stod(sLength), std::stod(sWidth), std::stod(sHeight));
+        generateParallelepiped(writer, std::stod(sLength), std::stod(sWidth), std::stod(sHeight));
     }
 }
 
-void createTriangle(std::ofstream& myFile) {
+void createTriangle(ObjStreamWriter writer) {
     int count = 0;
     std::string str1, str2, str3;
     std::vector<Vertex> v;
@@ -250,29 +248,29 @@ void createTriangle(std::ofstream& myFile) {
         }
         
     }
-    generateTriangle(myFile, temp);
+    generateTriangle(writer, temp);
 
 }
 
-void createCube(std::ofstream& myFile) {
+void createCube(ObjStreamWriter writer) {
     std::cout << "Input side: ";
     std::string side;
     std::cin >> side;
     if (checkIsDouble(side)) {
-        generateCube(myFile, std::stod(side));
+        generateCube(writer, std::stod(side));
     }
 }
-void createPiramid(std::ofstream& myFile) {
+void createPiramid(ObjStreamWriter writer) {
     std::cout << "Input length, width, height: ";
     std::string sLength, sWidth, sHeight;
     std::cin >> sLength;
     std::cin >> sWidth;
     std::cin >> sHeight;
     if (checkIsDouble(sLength) && checkIsDouble(sWidth) && checkIsDouble(sHeight)) {
-        generatePiramid(myFile, std::stod(sLength), std::stod(sWidth), std::stod(sHeight));
+        generatePiramid(writer, std::stod(sLength), std::stod(sWidth), std::stod(sHeight));
     }
 }
-void createTruncatedPiramid(std::ofstream& myFile) {
+void createTruncatedPiramid(ObjStreamWriter writer) {
     std::cout << "Input length, width, height, new height: ";
     std::string sLength, sWidth, sHeight, sNewHeight;
     std::cin >> sLength;
@@ -280,13 +278,14 @@ void createTruncatedPiramid(std::ofstream& myFile) {
     std::cin >> sHeight;
     std::cin >> sNewHeight;
     if (checkIsDouble(sLength) && checkIsDouble(sWidth) && checkIsDouble(sHeight)&&checkIsDouble(sNewHeight)) {
-        generateTruncatedPiramid(myFile, std::stod(sLength), std::stod(sWidth), std::stod(sHeight), std::stod(sNewHeight));
+        generateTruncatedPiramid(writer, std::stod(sLength), std::stod(sWidth), std::stod(sHeight), std::stod(sNewHeight));
     }
 }
 int main() {
 
-    std::ofstream myFile("obj2.obj");
+    std::ofstream file("obj2.obj");
 
+    ObjStreamWriter writer(file);
     //// Запись в файл  
     std::cout << "What model you want to generate?\n"
         "\n1 - triangle"
@@ -303,33 +302,33 @@ int main() {
     {
     case 1:
         //тестировал
-        createTriangle(myFile);
+        createTriangle(writer);
         break;
 
     case 2:
         //тестировал
-        createPolygon(myFile);
+        createPolygon(writer);
         break;
 
     case 3:
         //тестировал
-        createParallelepiped(myFile);
+        createParallelepiped(writer);
         break;
 
     case 4:
         // тестировал
-        createPiramid(myFile);
+        createPiramid(writer);
         break;
     case 5:
         // тестировал
-        createCube(myFile);
+        createCube(writer);
         break;
 
     case 6:
         //тестировал
-        createTruncatedPiramid(myFile);
+        createTruncatedPiramid(writer);
         break;
     }
 
-    myFile.close();
+   
 }
