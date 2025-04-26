@@ -1,5 +1,7 @@
+X64/Debug
 ObjGenerator.vcxproj
+ObjGenerator.vcxproj.user
 ObjGenerator.vcxproj.filters
-ObjGenerator.vcxproj.filters
+ObjStreamWriter.hpp
 ObjGenerator.vcxproj.user
 *.obj
