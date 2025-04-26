@@ -3,5 +3,4 @@ ObjGenerator.vcxproj
 ObjGenerator.vcxproj.user
 ObjGenerator.vcxproj.filters
 ObjStreamWriter.hpp
-ObjGenerator.vcxproj.user
 *.obj
