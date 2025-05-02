@@ -1,0 +1,1 @@
+This project is a simple 3D model generator that creates basic geometric shapes in OBJ file format. The program allows users to generate various 3D primitives through a console interface and saves them as OBJ files that can be imported into most 3D modeling software.

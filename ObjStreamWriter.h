@@ -22,12 +22,12 @@ public:
 class ObjStreamWriter {
 private:
     std::ofstream& filePath;  // Ссылка на поток
-    std::vector<Vertex> vec;
+    std::vector<Vertex> vecVertex;
+  
 public:
-    int size;
-    int getSize();
+    int getLastVertexIndex();
     ObjStreamWriter(std::ofstream& filePath);  // Принимает ссылку
-    void addVertex(double x, double y, double z);
+    int addVertex(double x, double y, double z);
     void addLine(int vertexIndexStart, int vertexIndexEnd);
     void addFacet(int vertexIndex1, int vertexIndex2, int vertexIndex3);
 };
