@@ -1,6 +1,10 @@
-X64/Debug
+x64/
 ObjGenerator.vcxproj
 ObjGenerator.vcxproj.user
 ObjGenerator.vcxproj.filters
 ObjStreamWriter.hpp
 *.obj
+.vs/
+*.stl
+*.stp
+*.wrl
