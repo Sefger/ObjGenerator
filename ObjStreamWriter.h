@@ -30,4 +30,5 @@ public:
     int addVertex(double x, double y, double z);
     void addLine(int vertexIndexStart, int vertexIndexEnd);
     void addFacet(int vertexIndex1, int vertexIndex2, int vertexIndex3);
+    void addNamedObject(std::string text);
 };

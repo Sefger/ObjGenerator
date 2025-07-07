@@ -31,3 +31,6 @@ void ObjStreamWriter::addFacet(int vertexIndex1, int vertexIndex2, int vertexInd
     filePath << "f " << vertexIndex1 << " " << vertexIndex2 << " " << vertexIndex3 << std::endl;
 }
 int ObjStreamWriter::getLastVertexIndex() { return vecVertex.size(); };
+void ObjStreamWriter::addNamedObject(std::string text) {
+    filePath << "o " << text << std::endl;
+};
