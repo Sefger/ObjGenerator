@@ -11,6 +11,7 @@
 #include <TColgp_Array1OfPnt.hxx>
 #include "ObjStreamWriter.h"
 #include <fstream>
+
 void exportShapeToObj(ObjStreamWriter& objWriter, const TopoDS_Shape& shape, const std::string& objectName) {
     objWriter.addNamedObject(objectName);
 
